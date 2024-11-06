@@ -1,4 +1,5 @@
 # Código do segundo vídeo do moço com relação a  biblioteca 2/12
+
 import  sqlite3
 
 #Conectar ao banco de dados 
