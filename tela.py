@@ -1,5 +1,3 @@
-## Código referente ao primeiro código do vídeo 5 feito pela Giselly   5/12
-
 from tkinter .ttk import *
 from tkinter import *
 
