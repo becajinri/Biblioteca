@@ -59,6 +59,24 @@ app_Linha.place(x=0,y=47)
 #Menu----------
 
 # Novo usuario
+def novo_usuario():
+
+  global img_salvar
+
+def add():
+  first_name = e_p_nome.get()
+  last_name = e_sobrenome.get()
+  address = e_endereco.get()
+  email = e_email.get()
+  phone = e_numero.get()
+
+lista = [first_name, last_name, address, email, phone}
+         # Verificando caso algum campo esteja vazio ou não
+         for i in lista:
+           if i=='':
+             messagebox.showerror('Erro', 'Preencha todos os campos')
+             return
+         # Inerindo os dados no banco de dados
 img_usuario = Image.open('add.png')
 img_usuario = img_usuario.resize((18,18))
 img_usuario = ImageTK.PhotoImage(img_usuario)
