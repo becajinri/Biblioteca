@@ -77,6 +77,7 @@ lista = [first_name, last_name, address, email, phone}
              messagebox.showerror('Erro', 'Preencha todos os campos')
              return
          # Inerindo os dados no banco de dados
+
 img_usuario = Image.open('add.png')
 img_usuario = img_usuario.resize((18,18))
 img_usuario = ImageTK.PhotoImage(img_usuario)
