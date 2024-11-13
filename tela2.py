@@ -1,9 +1,10 @@
 ## Código referente a continuação do código do vídeo 6 feito pela Giselly 6/12
-
 from tkinter .ttk import *
 from tkinter import *
 from PIL import Image, ImageTK
 
+#importando as funões da view
+from view import *
 
 # cores--------------------
 co0 = "#2e2d2b" #preta
@@ -63,6 +64,7 @@ def novo_usuario():
 
   global img_salvar
 
+# Código do vídeo #09 - Giovanna (13/11/24)
 def add():
   first_name = e_p_nome.get()
   last_name = e_sobrenome.get()
@@ -71,12 +73,14 @@ def add():
   phone = e_numero.get()
 
 lista = [first_name, last_name, address, email, phone}
-         # Verificando caso algum campo esteja vazio ou não
-         for i in lista:
-           if i=='':
-             messagebox.showerror('Erro', 'Preencha todos os campos')
-             return
-         # Inerindo os dados no banco de dados
+# Verificando caso algum campo esteja vazio ou não
+  for i in lista:
+   if i=='':
+    messagebox.showerror('Erro', 'Preencha todos os campos')
+    return
+     
+# Inerindo os dados no banco de dados
+insert_user
 
 img_usuario = Image.open('add.png')
 img_usuario = img_usuario.resize((18,18))
