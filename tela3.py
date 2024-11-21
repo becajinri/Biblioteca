@@ -1,10 +1,11 @@
 # Código referente a continuação do código do vídeo 7 e 8 feito pela Gabrielle 8/12
+
 from tkinter .ttk import *
 from tkinter import *
 from tkinter import tk, ttk
 from PIL import Image, ImageTK
 
-from tkinter import messagebox 
+from tkinter import messagebox
 
 # importando as funcoes da view
 frow view import *
@@ -31,7 +32,7 @@ janela.geometry('770x330')
 janela.configure(background=co1)
 janela.resizable(width=FALSE)
 
-style = style (janela)
+style = Style (janela)
 style.theme_use("clam")
 
 # Frames------------------
@@ -101,7 +102,7 @@ def novo_usuario():
 
         # inserindo os dados no banco de dados
 
-        insert_user(fist_name, last_name, address, email, phone)
+        insert_user(first_name, last_name, address, email, phone)
 
         
 
@@ -115,7 +116,7 @@ def novo_usuario():
 
         e_sobrenome.delete(0,END)
 
-        e_endereco.delete(0,END)
+        e_endereco.delete(0,END) # type: ignore
 
         e_email.delete(0,END)
 
@@ -128,12 +129,12 @@ def novo_usuario():
     app_.grid(row=0, column=0, columnspan=4, sticky=NSEW)
 
     app_Linha = Label(frameDireita, width=400, height=1, anchor= NW, font= ('verdana 1') , bg= co3, fg=co1)
-     app_Linha.grid(row=1, column=0, columnspan=4, sticky=NSEW)
+    app_Linha.grid(row=1, column=0, columnspan=4, sticky=NSEW)
      
-     l_p_nome = Label(frameDireita, text="Primeiro nome*",anchor= NW, font=('Ivy 10'), bg=co1, fg=co4)
+    l_p_nome = Label(frameDireita, text="Primeiro nome*",anchor= NW, font=('Ivy 10'), bg=co1, fg=co4)
 
     l_p_nome.grid(row=2, column=0, padx=5, pady=5,sticky=NSEW)
-     e_p_nome = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_p_nome = Entry(frameDireita, width=25, justify='left', relief='solid')
 
     e_p_nome.grid(row=2, column=1, padx=5, pady=5,sticky=NSEW)
 
@@ -142,7 +143,7 @@ def novo_usuario():
     l_sobrenome = Label(frameDireita, text="Sobrenome*",anchor= NW, font=('Ivy 10'), bg=co1, fg=co4)
 
     l_sobrenome.grid(row=3, column=0, padx=5, pady=5,sticky=NSEW)
-     e_sobrenome = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_sobrenome = Entry(frameDireita, width=25, justify='left', relief='solid')
 
     e_sobrenome.grid(row=3, column=1, padx=5, pady=5,sticky=NSEW)
 
@@ -152,7 +153,7 @@ def novo_usuario():
 
     l_endereco.grid(row=4, column=0, padx=5, pady=5,sticky=NSEW)
 
-    l_endereco= Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_endereco= Entry(frameDireita, width=25, justify='left', relief='solid')
 
     e_endereco.grid(row=4, column=1, padx=5, pady=5,sticky=NSEW)
 
@@ -161,7 +162,7 @@ def novo_usuario():
     l_email = Label(frameDireita, text="Endereço de email*",anchor= NW, font=('Ivy 10'), bg=co1, fg=co4)
 
     l_email.grid(row=5, column=0, padx=5, pady=5,sticky=NSEW)
-     e_email = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_email = Entry(frameDireita, width=25, justify='left', relief='solid')
 
     e_email.grid(row=5, column=1, padx=5, pady=5,sticky=NSEW)
 
@@ -170,18 +171,18 @@ def novo_usuario():
     l_numero = Label(frameDireita, text="Numero de telefone*",anchor= NW, font=('Ivy 10'), bg=co1, fg=co4)
 
     l_numero.grid(row=6, column=0, padx=5, pady=5,sticky=NSEW)
-     e_numero = Entry(frameDireita, width=25, justify='left', relief='solid')
+    e_numero = Entry(frameDireita, width=25, justify='left', relief='solid')
 
     e_numero.grid(row=6, column=1, padx=5, pady=5,sticky=NSEW)
      
 
 
     # Botao salvar
-     img_salvar = Image.open('save.png')
-     img_salvar = img_salvar.resize((18,18))
-     img_salvar = ImageTK.PhotoImage(img_salvar)
-     b_salvar = Button(frameDireita, command=add, image=img_salvar,compound= LEFT, width=100, anchor=NW, text= ' Salvar ', bg=co1, fg=co4, font=('Ivy 11'), overrelief= RIDGE, relief=GROOVE )
-     b_salvar.grid(row=7, column=1,sticky=NSEW,padx=5,pady=6)
+    img_salvar = Image.open('save.png')
+    img_salvar = img_salvar.resize((18,18))
+    img_salvar = ImageTK.PhotoImage(img_salvar)
+    b_salvar = Button(frameDireita, command=add, image=img_salvar,compound= LEFT, width=100, anchor=NW, text= ' Salvar ', bg=co1, fg=co4, font=('Ivy 11'), overrelief= RIDGE, relief=GROOVE )
+    b_salvar.grid(row=7, column=1,sticky=NSEW,padx=5,pady=6)
 
 
 
@@ -196,39 +197,38 @@ def ver_usuarios():
     app_.grid(row=0, column=0, columnspan=4, sticky=NSEW)
 
     app_Linha = Label(frameDireita, width=400, height=1, anchor= NW, font= ('verdana 1') , bg= co3, fg=co1)
-     app_Linha.grid(row=1, column=0, columnspan=4, sticky=NSEW)
+    app_Linha.grid(row=1, column=0, columnspan=4, sticky=NSEW)
      
-     dados = get_users()
+    dados = get_users()
      
-     #creating a treeview with dual scrollbars
-     list_header =['ID','Nome','Sobrenome','Endereço','Email','Telefone']
+    #creating a treeview with dual scrollbars
+    list_header =['ID','Nome','Sobrenome','Endereço','Email','Telefone']
     
-     global tree
+    global tree
 
-     tree = ttk.Treeview(frameDireita, selectmode="extended",
+    tree = ttk.Treeview(frameDireita, selectmode="extended",
                         columns=list_header, show="headings")
                         
-     vsb = ttk.Scrollbar(frameDireita, orient="vertical", command=tree.yview)
-     hsb = ttk.Scrollbar(frameDireita, orient="horizontal", command=tree.xview)
-     tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
-     tree.grid(column=0, row=2, sticky='nsew')
-     vsb.grid(column=1, row=2, sticky='ns')
-     hsb.grid(column=0, row=3, sticky='ew')
-     frameDireita.grid_rowconfigure(0, weight=12)
+    vsb = ttk.Scrollbar(frameDireita, orient="vertical", command=tree.yview)
+    hsb = ttk.Scrollbar(frameDireita, orient="horizontal", command=tree.xview)
+    tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    tree.grid(column=0, row=2, sticky='nsew')
+    vsb.grid(column=1, row=2, sticky='ns')
+    hsb.grid(column=0, row=3, sticky='ew')
+    frameDireita.grid_rowconfigure(0, weight=12)
 
-     hd=["nw","nw","nw","nw","nw","nw"]
-     h=[20,80,80,120,120,76,100]
-     n=0
+    hd=["nw","nw","nw","nw","nw","nw"]
+    h=[20,80,80,120,120,76,100]
+    n=0
 
-     for col in list_header:
-         tree.heading(col, text=col, anchor='nw')
-         adjust the column's width to the header string
-         tree.column(col, width=h[n],anchor=hd[n])
+    for col in list_header:
+        tree.heading(col, text=col, anchor='nw')
+        tree.column(col, width=h[n],anchor=hd[n])
          
-         n+=1
+        n+=1
          
-     for item in dados:
-         tree.insert('', 'end', values=item)
+    for item in dados:
+        tree.insert('', 'end', values=item)
 
 
 # Funcao para controlar o menu -------------
@@ -248,13 +248,13 @@ def control(i):
 
             
 
-         # chamando a funcao novo usuario 
+        # chamando a funcao novo usuario 
 
-         novo_usuario()
+        novo_usuario()
 
          
 
-     # novo usuario
+    # novo usuario
 
     if i == 'ver_usuarios':
 
@@ -264,9 +264,9 @@ def control(i):
 
             
 
-         # chamando a funcao novo usuario
+        # chamando a funcao novo usuario
 
-         ver_usuarios()    
+        ver_usuarios()    
 
 
 
