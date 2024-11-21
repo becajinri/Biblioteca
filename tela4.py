@@ -1,4 +1,4 @@
-## Código referente a continuação do código do vídeo 6 feito pela Giselly 6/12
+## Código referente a continuação do código do vídeo 9 feito pela Gio 21/11
 from tkinter .ttk import *
 from tkinter import *
 from PIL import Image, ImageTK
